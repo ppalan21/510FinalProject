@@ -104,6 +104,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>include\CppUnitLite</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -127,7 +128,21 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="CppUnitLite\Failure.cpp" />
+    <ClCompile Include="CppUnitLite\Test.cpp" />
+    <ClCompile Include="CppUnitLite\TestRegistry.cpp" />
+    <ClCompile Include="CppUnitLite\TestResult.cpp" />
+    <ClCompile Include="CppUnitLite\WFailure.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="SampleTest.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\CppUnitLite\Failure.h" />
+    <ClInclude Include="include\CppUnitLite\Test.h" />
+    <ClInclude Include="include\CppUnitLite\TestHarness.h" />
+    <ClInclude Include="include\CppUnitLite\TestRegistry.h" />
+    <ClInclude Include="include\CppUnitLite\TestResult.h" />
+    <ClInclude Include="include\CppUnitLite\WFailure.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
