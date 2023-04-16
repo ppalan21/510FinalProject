@@ -1,0 +1,11 @@
+Flight List 
+{
+	Flight 845 
+	{
+		Source:MAA
+		Destination:SMF
+		Start:1730
+		Duration:120
+		Price:245.22
+	}
+}

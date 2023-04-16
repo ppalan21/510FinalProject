@@ -105,6 +105,7 @@
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>include\CppUnitLite</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -143,6 +144,9 @@
     <ClInclude Include="include\CppUnitLite\TestRegistry.h" />
     <ClInclude Include="include\CppUnitLite\TestResult.h" />
     <ClInclude Include="include\CppUnitLite\WFailure.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="TextInputs\FlightList.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
