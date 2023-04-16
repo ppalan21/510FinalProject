@@ -1,4 +1,4 @@
-# 510FinalProject__
+# 510FinalProject
 UW 510 Final Project - Airline Reservation System <br/>
 
 The goal of this project is to create an airline reservation system where customers can:<br/>
