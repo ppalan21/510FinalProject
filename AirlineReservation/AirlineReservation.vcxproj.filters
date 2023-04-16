@@ -45,7 +45,10 @@
     <ClCompile Include="CppUnitLite\WFailure.cpp">
       <Filter>CppUnitLite\CppUnitLite source files</Filter>
     </ClCompile>
-    <ClCompile Include="SampleTest.cpp">
+    <ClCompile Include="Flight.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FlightTest.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -67,6 +70,9 @@
     </ClInclude>
     <ClInclude Include="include\CppUnitLite\WFailure.h">
       <Filter>CppUnitLite\CppUnitLite header files</Filter>
+    </ClInclude>
+    <ClInclude Include="Flight.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -134,10 +134,12 @@
     <ClCompile Include="CppUnitLite\TestRegistry.cpp" />
     <ClCompile Include="CppUnitLite\TestResult.cpp" />
     <ClCompile Include="CppUnitLite\WFailure.cpp" />
+    <ClCompile Include="Flight.cpp" />
+    <ClCompile Include="FlightTest.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="SampleTest.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Flight.h" />
     <ClInclude Include="include\CppUnitLite\Failure.h" />
     <ClInclude Include="include\CppUnitLite\Test.h" />
     <ClInclude Include="include\CppUnitLite\TestHarness.h" />
