@@ -38,7 +38,12 @@ TEST(SetNewValues, Flight) {
 	CHECK_EQUAL(1730, flight.getstarttime());
 	CHECK_EQUAL(121, flight.getduration());
 	CHECK_DOUBLES_EQUAL(234.11, flight.getprice(), 0.01);
-	flight.set(762, "ABC", "RDD", 1230, 181, 411.11);
+	flight.setnumber(762);
+	flight.setsource("ABC");
+	flight.setdestination("RDD");
+	flight.setstarttime(1230);
+	flight.setduration(181);
+	flight.setprice(411.11);
 	ss.str("");
 	ss << flight;
 	CHECK_EQUAL(762, flight.getnumber());

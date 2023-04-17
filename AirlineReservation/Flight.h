@@ -11,7 +11,12 @@ public:
 	unsigned int getstarttime() const;
 	unsigned int getduration() const;
 	double getprice() const;
-	void set(unsigned int, std::string, std::string, unsigned int, unsigned int, double);
+	void setnumber(unsigned int);
+	void setsource(std::string);
+	void setdestination(std::string);
+	void setstarttime(unsigned int);
+	void setduration(unsigned int);
+	void setprice(double);
 	friend std::ostream& operator<<(std::ostream& os, const Flight& flight);
 private:
 	unsigned int m_number;

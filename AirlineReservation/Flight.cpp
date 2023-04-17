@@ -35,12 +35,27 @@ double Flight::getprice() const {
 	return m_price;
 }
 
-void Flight::set(unsigned int num, std::string src, std::string dst, unsigned int st, unsigned int dur, double price) {
+void Flight::setnumber(unsigned int num) {
 	m_number = num;
-	m_source = src;  
-	m_destination = dst; 
-	m_start_time = st; 
-	m_duration = dur;  
+}
+
+void Flight::setsource(std::string src) {
+	m_source = src;
+}
+
+void Flight::setdestination(std::string dst) {
+	m_destination = dst;
+}
+
+void Flight::setstarttime(unsigned int st) {
+	m_start_time = st;
+}
+
+void Flight::setduration(unsigned int dur) {
+	m_duration = dur;
+}
+
+void Flight::setprice(double price) {
 	m_price = price;
 }
 
