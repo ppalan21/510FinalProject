@@ -35,6 +35,15 @@ double Flight::getprice() const {
 	return m_price;
 }
 
+void Flight::set(unsigned int num, std::string src, std::string dst, unsigned int st, unsigned int dur, double price) {
+	m_number = num;
+	m_source = src;  
+	m_destination = dst; 
+	m_start_time = st; 
+	m_duration = dur;  
+	m_price = price;
+}
+
 std::ostream& operator<<(std::ostream& os, const Flight& flight) {
 	os << "***\n";
 	os << "Flight " << flight.m_number << " details:\n";
