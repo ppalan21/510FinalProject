@@ -1,5 +1,6 @@
 #include "Flight.h"
 #include <ostream>
+#include <iomanip>
 
 Flight::Flight()
 	: m_number(0), m_source("---"), m_destination("---"), m_start_time(0), m_duration(0), m_price(0) {
@@ -60,12 +61,11 @@ void Flight::setprice(double price) {
 }
 
 std::ostream& operator<<(std::ostream& os, const Flight& flight) {
-	os << "***\n";
-	os << "Flight " << flight.m_number << " details:\n";
-	os << flight.m_source << " --> " << flight.m_destination << "\n";
-	os << "Start time: " << flight.m_start_time << " PST\n";
-	os << "Duration: " << flight.m_duration << " minutes\n";
-	os << "Price per seat: " << flight.m_price << " $\n";
-	os << "***\n";
+	os << flight.m_number;
+	os << std::setw(15) << flight.m_source;
+	os << std::setw(15) << flight.m_destination;
+	os << std::setw(15) << flight.m_start_time;
+	os << std::setw(15) << flight.m_duration;
+	os << std::setw(15) << flight.m_price;
 	return os;
 }

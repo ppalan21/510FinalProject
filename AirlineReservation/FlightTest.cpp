@@ -1,5 +1,6 @@
 #include "TestHarness.h"
 #include "Flight.h"
+#include <iomanip>
 
 TEST(DefaultConstructor, Flight) {
 	Flight flight;
@@ -22,10 +23,17 @@ TEST(ParameterConstructor, Flight) {
 }
 
 TEST(OstreamOperator, Flight) {
+	std::stringstream ss_expected;
+	ss_expected << 845;
+	ss_expected << std::setw(15) << "SMF";
+	ss_expected << std::setw(15) << "MAA";
+	ss_expected << std::setw(15) << 1730;
+	ss_expected << std::setw(15) << 121;
+	ss_expected << std::setw(15) << 234.11;
 	Flight flight(845, "SMF", "MAA", 1730, 121, 234.11);
-	std::stringstream ss;
-	ss << flight;
-	CHECK_EQUAL("***\nFlight 845 details:\nSMF --> MAA\nStart time: 1730 PST\nDuration: 121 minutes\nPrice per seat: 234.11 $\n***\n", ss.str());
+	std::stringstream ss_actual;
+	ss_actual << flight;
+	CHECK_EQUAL(ss_expected.str(), ss_actual.str());
 }
 
 TEST(SetNewValues, Flight) {
