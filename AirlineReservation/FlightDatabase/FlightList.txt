@@ -1,11 +1,4 @@
-Flight List 
-{
-	Flight 845 
-	{
-		Source:MAA
-		Destination:SMF
-		Start:1730
-		Duration:120
-		Price:245.22
-	}
-}
+Number         Source         Dest          Start(PST)      Dur(min)    Price($)
+845            SMF            MAA           1730            121         234.114
+762            ABC            KVM           1220            56          102.33
+253            XYZ            QWQ           0410            232         520.65
