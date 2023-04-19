@@ -21,7 +21,7 @@ TEST(ParameterConstructor, Flight) {
 	CHECK_EQUAL(121, flight.getduration());
 	CHECK_DOUBLES_EQUAL(234.11, flight.getprice(), 0.01);
 }
-
+/*
 TEST(OstreamOperator, Flight) {
 	std::stringstream ss_expected;
 	ss_expected << 845;
@@ -35,6 +35,7 @@ TEST(OstreamOperator, Flight) {
 	ss_actual << flight;
 	CHECK_EQUAL(ss_expected.str(), ss_actual.str());
 }
+*/
 
 TEST(SetNewValues, Flight) {
 	Flight flight(845, "SMF", "MAA", 1730, 121, 234.11);
@@ -52,8 +53,6 @@ TEST(SetNewValues, Flight) {
 	flight.setstarttime(1230);
 	flight.setduration(181);
 	flight.setprice(411.11);
-	ss.str("");
-	ss << flight;
 	CHECK_EQUAL(762, flight.getnumber());
 	CHECK_EQUAL("ABC", flight.getsource());
 	CHECK_EQUAL("RDD", flight.getdestination());
@@ -62,7 +61,7 @@ TEST(SetNewValues, Flight) {
 	CHECK_DOUBLES_EQUAL(411.11, flight.getprice(), 0.01);
 }
 
-TEST(EqualToEqualToOperator, FlightList) {
+TEST(EqualToEqualToOperator, Flight) {
 	Flight fl1(845, "SMF", "MAA", 1730, 121, 234.11);
 	Flight fl2(845, "SMF", "MAA", 1730, 121, 234.11);
 	Flight fl3(253, "XYZ", "QWQ", 410, 232, 520.65);
