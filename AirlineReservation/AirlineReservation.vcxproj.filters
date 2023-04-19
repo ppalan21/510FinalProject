@@ -22,7 +22,7 @@
     <Filter Include="CppUnitLite\CppUnitLite source files">
       <UniqueIdentifier>{eb353b13-4016-4378-ac6a-580d9034ba97}</UniqueIdentifier>
     </Filter>
-    <Filter Include="TextInputs">
+    <Filter Include="FlightDatabase">
       <UniqueIdentifier>{2cb7d977-c4e6-456d-96f9-320ce9725eb1}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -51,6 +51,15 @@
     <ClCompile Include="FlightTest.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="FlightList.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FlightList.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FlightListTest.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\CppUnitLite\Failure.h">
@@ -76,8 +85,8 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="TextInputs\FlightList.txt">
-      <Filter>TextInputs</Filter>
+    <Text Include="FlightDatabase\FlightList.txt">
+      <Filter>FlightDatabase</Filter>
     </Text>
   </ItemGroup>
 </Project>

@@ -135,6 +135,9 @@
     <ClCompile Include="CppUnitLite\TestResult.cpp" />
     <ClCompile Include="CppUnitLite\WFailure.cpp" />
     <ClCompile Include="Flight.cpp" />
+    <ClCompile Include="FlightList.cpp" />
+    <ClCompile Include="FlightList.h" />
+    <ClCompile Include="FlightListTest.cpp" />
     <ClCompile Include="FlightTest.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
@@ -148,7 +151,7 @@
     <ClInclude Include="include\CppUnitLite\WFailure.h" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="TextInputs\FlightList.txt" />
+    <Text Include="FlightDatabase\FlightList.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
