@@ -60,6 +60,18 @@ void Flight::setprice(double price) {
 	m_price = price;
 }
 
+bool Flight::operator== (Flight& other) {
+	if (m_number == other.m_number &&
+		m_source == other.m_source &&
+		m_destination == other.m_destination &&
+		m_start_time == other.m_start_time &&
+		m_duration == other.m_duration &&
+		m_price == other.m_price) {
+		return true;
+	}
+	return false;
+}
+
 std::ostream& operator<<(std::ostream& os, const Flight& flight) {
 	os << flight.m_number;
 	os << std::setw(15) << flight.m_source;

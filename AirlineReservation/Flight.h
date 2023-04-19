@@ -17,6 +17,7 @@ public:
 	void setstarttime(unsigned int);
 	void setduration(unsigned int);
 	void setprice(double);
+	bool operator== (Flight& other);
 	friend std::ostream& operator<<(std::ostream& os, const Flight& flight);
 private:
 	unsigned int m_number;

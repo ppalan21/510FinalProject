@@ -61,3 +61,11 @@ TEST(SetNewValues, Flight) {
 	CHECK_EQUAL(181, flight.getduration());
 	CHECK_DOUBLES_EQUAL(411.11, flight.getprice(), 0.01);
 }
+
+TEST(EqualToEqualToOperator, FlightList) {
+	Flight fl1(845, "SMF", "MAA", 1730, 121, 234.11);
+	Flight fl2(845, "SMF", "MAA", 1730, 121, 234.11);
+	Flight fl3(253, "XYZ", "QWQ", 410, 232, 520.65);
+	CHECK(fl1 == fl2);
+	CHECK(fl1 != fl3);
+}
