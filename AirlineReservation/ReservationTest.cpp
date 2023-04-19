@@ -1,6 +1,5 @@
 #include "TestHarness.h"
 #include "Reservation.h"
-#include <iostream>
 #include <list>
 
 TEST(DefaultConstructor, Reservation) {
@@ -21,7 +20,6 @@ TEST(ParameterConstructor, Reservation) {
 	CHECK_EQUAL("John Doe", reservation.getname());
 	CHECK_EQUAL(3, reservation.getnumpassengers());
 	CHECK(seats == reservation.getseats());
-	std::cout << reservation;
 }
 
 TEST(SetNewValues, Reservation) {
