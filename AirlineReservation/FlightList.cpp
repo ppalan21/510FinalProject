@@ -51,6 +51,11 @@ Flight FlightList::getflight(unsigned int num) const {
 	return m_list.at(num);
 }
 
+bool FlightList::findflight(unsigned int flight_number) const {
+	if (m_list.find(flight_number) != m_list.end()) return true;
+	return false;
+}
+
 std::ostream& operator<<(std::ostream& os, const FlightList& fl) {
 	table_header(os);
 	for (const auto& entry : fl.m_list) {

@@ -9,6 +9,7 @@ public:
 	FlightList();
 	FlightList(std::string);
 	Flight getflight(unsigned int flight_number) const;
+	bool findflight(unsigned int flight_number) const;
 	friend std::ostream& operator<<(std::ostream& os, const FlightList& flightlist);
 private:
 	std::unordered_map<unsigned int, Flight> m_list;

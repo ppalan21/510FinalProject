@@ -24,3 +24,9 @@ TEST(GetFlight, FlightList) {
 	Flight expectedfl(762, "ABC", "KVM", 1220, 56, 102.33);
 	CHECK_EQUAL(expectedfl, actualfl);
 }
+
+TEST(FindFlight, FlightList) {
+	FlightList flist("FlightDatabase\\FlightList.txt");
+	CHECK(flist.findflight(845));
+	CHECK(!flist.findflight(123));
+}
