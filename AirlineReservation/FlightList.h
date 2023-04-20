@@ -2,7 +2,7 @@
 #include "Flight.h"
 #include <unordered_map>
 
-void table_header(std::ostream& os);
+void add_flightlist_header(std::ostream& os);
 
 class FlightList {
 public:

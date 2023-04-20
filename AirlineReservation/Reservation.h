@@ -2,6 +2,8 @@
 #include <string>
 #include <list>
 
+void add_reservationlist_header(std::ostream&);
+
 class Reservation {
 public:
 	Reservation();

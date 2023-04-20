@@ -1,4 +1,4 @@
-Number         Source         Dest          Start(PST)      Dur(min)    Price($)
-845            SMF            MAA           1730            121         234.114
-762            ABC            KVM           1220            56          102.33
-253            XYZ            QWQ           0410            232         520.65
+Flight Number            Source                   Destination              Start time (PST)         Duration (min)           Price ($)
+745                      SMF                      MAA                      1700                     121                      245.43
+821                      KLM                      CVV                      1220                     56                       74.89
+121                      RSD                      QWQ                      0410                     232                      421.11

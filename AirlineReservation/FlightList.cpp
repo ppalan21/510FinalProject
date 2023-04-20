@@ -2,15 +2,16 @@
 #include <fstream>
 #include <iostream>
 #include <sstream>
-#include <iomanip>
+#include <format>
 
-void table_header(std::ostream& os) {
-	os << "Number" << std::setw(15)
-		<< "Source" << std::setw(15)
-		<< "Destination" << std::setw(15)
-		<< "Start(PST)" << std::setw(15)
-		<< "Dur(min)" << std::setw(15)
-		<< "Price($)\n";
+void add_flightlist_header(std::ostream& os) {
+	os	<< std::format("{:<25}", "Flight Number")
+		<< std::format("{:<25}", "Source")
+		<< std::format("{:<25}", "Destination")
+		<< std::format("{:<25}", "Start time (PST)")
+		<< std::format("{:<25}", "Duration (min)")
+		<< std::format("{:<25}", "Price ($)");
+	os << "\n";
 }
 
 FlightList::FlightList() {
@@ -42,7 +43,7 @@ FlightList::FlightList(std::string filepath) {
 	}
 	else {
 		std::cout << "Flight database file at " << filepath << " is not available. Please create one in the following format: \n\n";
-		table_header(std::cout);
+		add_flightlist_header(std::cout);
 		exit(0);
 	}
 }
@@ -57,9 +58,9 @@ bool FlightList::findflight(unsigned int flight_number) const {
 }
 
 std::ostream& operator<<(std::ostream& os, const FlightList& fl) {
-	table_header(os);
+	add_flightlist_header(os);
 	for (const auto& entry : fl.m_list) {
-		os << entry.second << "\n";
+		os << entry.second;
 	}
 	return os;
 }

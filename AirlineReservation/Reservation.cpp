@@ -1,6 +1,14 @@
 #include "Reservation.h"
 #include <ostream>
-#include <iomanip>
+#include <format>
+
+void add_reservationlist_header(std::ostream& os) {
+	os	<< std::format("{:<25}", "ReservationNumber")
+		<< std::format("{:<25}", "PassengerName")
+		<< std::format("{:<25}", "NumberOfPassengers")
+		<< std::format("{:<25}", "Seats");
+	os << "\n";
+}
 
 Reservation::Reservation()
 	: m_number(0), m_name("---"), m_numpassengers(0) {
@@ -55,14 +63,10 @@ bool Reservation::operator== (Reservation& other) {
 }
 
 std::ostream& operator<<(std::ostream& os, const Reservation& reservation) {
-	os << "ResNum";
-	os << std::setw(15) << "Name";
-	os << std::setw(15) << "NumPsgrs";
-	os << std::setw(15) << "Seats\n";
-	os << reservation.m_number;
-	os << std::setw(15) << reservation.m_name;
-	os << std::setw(15) << reservation.m_numpassengers;
-	os << std::setw(15);
+	add_reservationlist_header(os);
+	os	<< std::format("{:<25}", reservation.m_number)
+		<< std::format("{:<25}", reservation.m_name)
+		<< std::format("{:<25}", reservation.m_numpassengers);
 	for (const auto& item : reservation.m_seats) {
 		os << item.first << item.second << " ";
 	}

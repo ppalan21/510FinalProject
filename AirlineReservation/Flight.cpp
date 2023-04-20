@@ -1,6 +1,6 @@
 #include "Flight.h"
 #include <ostream>
-#include <iomanip>
+#include <format>
 
 Flight::Flight()
 	: m_number(0), m_source("---"), m_destination("---"), m_start_time(0), m_duration(0), m_price(0) {
@@ -73,11 +73,12 @@ bool Flight::operator== (Flight& other) {
 }
 
 std::ostream& operator<<(std::ostream& os, const Flight& flight) {
-	os << flight.m_number;
-	os << std::setw(15) << flight.m_source;
-	os << std::setw(15) << flight.m_destination;
-	os << std::setw(15) << flight.m_start_time;
-	os << std::setw(15) << flight.m_duration;
-	os << std::setw(15) << flight.m_price;
+	os << std::format("{:<25}", flight.m_number)
+		<< std::format("{:<25}", flight.m_source)
+		<< std::format("{:<25}", flight.m_destination)
+		<< std::format("{:<25}", flight.m_start_time)
+		<< std::format("{:<25}", flight.m_duration)
+		<< std::format("{:<25}", flight.m_price);
+	os << "\n";
 	return os;
 }
