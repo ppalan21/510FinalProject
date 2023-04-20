@@ -3,6 +3,8 @@
 #include <string>
 #include <unordered_map>
 
+void add_reservationlist_header(std::ostream&);
+
 class Flight {
 public:
 	Flight();

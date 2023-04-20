@@ -1,3 +1,4 @@
+#ifdef _DEBUG
 #include "TestHarness.h"
 #include "Flight.h"
 #include <iomanip>
@@ -68,3 +69,4 @@ TEST(EqualToEqualToOperator, Flight) {
 	CHECK(fl1 == fl2);
 	CHECK(fl1 != fl3);
 }
+#endif

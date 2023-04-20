@@ -1,3 +1,4 @@
+#ifdef _DEBUG
 #include "TestHarness.h"
 #include "FlightList.h"
 #include "Flight.h"
@@ -30,3 +31,4 @@ TEST(FindFlight, FlightList) {
 	CHECK(flist.findflight(745));
 	CHECK(!flist.findflight(123));
 }
+#endif

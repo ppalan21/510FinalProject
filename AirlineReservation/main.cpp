@@ -1,7 +1,11 @@
-#include "TestHarness.h"
 #include "FlightList.h"
 #include <iostream>
 #include <iomanip>
+
+#ifdef _DEBUG
+#include "TestHarness.h"
+#endif
+
 
 int get_user_input() {
 	std::cout << "Enter one of the options below:\n";
@@ -17,11 +21,13 @@ int get_user_input() {
 }
 
 int main() {
+#ifdef _DEBUG
 	// random number generator used in some tests
 	srand(::time_t(NULL));
 
 	TestResult tr;
-	//TestRegistry::runAllTests(tr);
+	TestRegistry::runAllTests(tr);
+#endif
 
 	std::cout << "\n" << std::setfill('-') << std::setw(100) << "\n";
 	std::cout << "Welcome to UW Airlines";

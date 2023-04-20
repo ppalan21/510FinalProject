@@ -2,14 +2,6 @@
 #include <ostream>
 #include <format>
 
-void add_reservationlist_header(std::ostream& os) {
-	os	<< std::format("{:<25}", "ReservationNumber")
-		<< std::format("{:<25}", "PassengerName")
-		<< std::format("{:<25}", "NumberOfPassengers")
-		<< std::format("{:<25}", "Seats");
-	os << "\n";
-}
-
 Reservation::Reservation()
 	: m_number(0), m_name("---"), m_numpassengers(0) {
 

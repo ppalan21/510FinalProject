@@ -1,3 +1,4 @@
+#ifdef _DEBUG
 #include "TestHarness.h"
 #include "Reservation.h"
 #include <list>
@@ -55,3 +56,4 @@ TEST(EqualToEqualToOperator, Reservation) {
 	CHECK(res1 != res2);
 	CHECK(res1 == res3);
 }
+#endif

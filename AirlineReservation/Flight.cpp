@@ -4,6 +4,14 @@
 #include <fstream>
 #include <format>
 
+void add_reservationlist_header(std::ostream& os) {
+	os << std::format("{:<25}", "ReservationNumber")
+		<< std::format("{:<25}", "PassengerName")
+		<< std::format("{:<25}", "NumberOfPassengers")
+		<< std::format("{:<25}", "Seats");
+	os << "\n";
+}
+
 Flight::Flight()
 	: m_number(0), m_source("---"), m_destination("---"), m_start_time(0), m_duration(0), m_price(0) {
 
@@ -126,21 +134,21 @@ void Flight::cancelreservation(unsigned int num) {
 void Flight::makereservation() {
 	std::cout << "\nPlease enter the following details:\n";
 	std::string name = "---";
-	std::cout << "\nCustomer Name (Please enter in camel case format - Capitalize both first and last names and no space in between - example: JohnDoe): ";
+	std::cout << "Customer Name (Please enter in camel case format - Capitalize both first and last names and no space in between - example: JohnDoe): ";
 	std::cin >> name;
 	unsigned int numpassengers = 0;
-	std::cout << "\nEnter number of passengers: ";
+	std::cout << "Enter number of passengers: ";
 	std::cin >> numpassengers;
 	std::list<std::pair<char, unsigned int>> seats;
-	for (int i = 0; i < numpassengers; i++) {
+	for (unsigned int i = 0; i < numpassengers; i++) {
 		char c = ' ';
 		while (c < 'A' || c > 'Z') {
-			std::cout << "\nSelect column for passenger " << i << " (A - Z) :";
+			std::cout << "Select column for passenger " << i << " (A - Z): ";
 			std::cin >> c;
 		}
-		unsigned int r = 0;
+		unsigned int r = 50;
 		while (r < 1 || r >  25) {
-			std::cout << "\nSelect row for passenger " << i << " (1 - 25) :";
+			std::cout << "Select row for passenger " << i << " (1 - 25): ";
 			std::cin >> r;
 		}
 		seats.push_back(std::make_pair(c, r));
