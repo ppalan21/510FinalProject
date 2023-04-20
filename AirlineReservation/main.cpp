@@ -62,9 +62,10 @@ int main() {
 			std::cin >> user_flight_num;
 			// check validity of flight number
 			if (!mylist.findflight(user_flight_num)) {
-				std::cout << "\nFlight number " << user_flight_num << " does not exist\n";
+				std::cout << "Flight number " << user_flight_num << " does not exist\n";
 				std::cout << "\nAvailable flights:\n";
 				std::cout << mylist;
+				std::cout << "\n";
 			}
 			else {
 				// get the correct flight
@@ -80,7 +81,7 @@ int main() {
 					std::cin >> user_res_num;
 					// check validity of reservation number
 					if (!myflight.findreservation(user_res_num)) {
-						std::cout << "\nReservation number " << user_res_num << " does not exist\n";
+						std::cout << "Reservation number " << user_res_num << " does not exist\n\n";
 					}
 					else {
 						// view reservation
