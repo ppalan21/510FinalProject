@@ -120,6 +120,38 @@ bool Flight::findreservation(unsigned int num) const {
 
 void Flight::cancelreservation(unsigned int num) {
 	m_reservationlist.erase(num);
+	std::cout << "\nThank you. Your reservation (number " << num << ") has been cancelled\n";
+}
+
+void Flight::makereservation() {
+	std::cout << "\nPlease enter the following details:\n";
+	std::string name = "---";
+	std::cout << "\nCustomer Name (Please enter in camel case format - Capitalize both first and last names and no space in between - example: JohnDoe): ";
+	std::cin >> name;
+	unsigned int numpassengers = 0;
+	std::cout << "\nEnter number of passengers: ";
+	std::cin >> numpassengers;
+	std::list<std::pair<char, unsigned int>> seats;
+	for (int i = 0; i < numpassengers; i++) {
+		char c = ' ';
+		while (c < 'A' || c > 'Z') {
+			std::cout << "\nSelect column for passenger " << i << " (A - Z) :";
+			std::cin >> c;
+		}
+		unsigned int r = 0;
+		while (r < 1 || r >  25) {
+			std::cout << "\nSelect row for passenger " << i << " (1 - 25) :";
+			std::cin >> r;
+		}
+		seats.push_back(std::make_pair(c, r));
+	}
+	unsigned int resnum = rand() % 1000 + 1;
+	while (m_reservationlist.find(resnum) != m_reservationlist.end()) {
+		resnum = rand() % 1000 + 1;
+	}
+	Reservation res(resnum, name, numpassengers, seats);
+	m_reservationlist[resnum] = res;
+	std::cout << "\nThank you. your reservation number is: " << resnum << "\n";
 }
 
 std::ostream& operator<<(std::ostream& os, const Flight& flight) {

@@ -62,7 +62,7 @@ int main() {
 			else {
 				Flight& myflight = mylist.getflight(user_flight_num);
 				if (input == 2) {
-					//myflight.makereservation();
+					myflight.makereservation();
 				}
 				else {
 					// Get reservation number to view or cancel it
