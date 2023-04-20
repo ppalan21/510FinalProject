@@ -120,7 +120,7 @@ bool Flight::findreservation(unsigned int num) const {
 
 void Flight::cancelreservation(unsigned int num) {
 	m_reservationlist.erase(num);
-	std::cout << "\nThank you. Your reservation (number " << num << ") has been cancelled\n";
+	std::cout << "Thank you. Your reservation (number " << num << ") has been cancelled\n";
 }
 
 void Flight::makereservation() {
