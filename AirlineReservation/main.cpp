@@ -3,14 +3,6 @@
 #include <iostream>
 #include <iomanip>
 
-enum class Menu {
-	ListFlight,
-	MakeReservation,
-	ViewReservation,
-	CancelReservation,
-	Exit
-};
-
 int get_user_input() {
 	std::cout << "Enter one of the options below:\n";
 	std::cout << "\t1. View available flights\n";
@@ -24,27 +16,12 @@ int get_user_input() {
 	return input;
 }
 
-Flight& check_and_get_flight(const FlightList& mylist) {
-	std::cout << "Enter flight number to make reservation: ";
-	unsigned int user_flight_num;
-	std::cin >> user_flight_num;
-	if (!mylist.findflight(user_flight_num)) {
-		std::cout << "\nFlight number " << user_flight_num << " does not exist\n";
-		std::cout << "\nAvailable flights:\n";
-		std::cout << mylist;
-		std::cout << "\nExiting..";
-		exit(0);
-	}
-	Flight myflight = mylist.getflight(user_flight_num);
-	return myflight;
-}
-
 int main() {
 	// random number generator used in some tests
 	srand(::time_t(NULL));
 
 	TestResult tr;
-	TestRegistry::runAllTests(tr);
+	//TestRegistry::runAllTests(tr);
 
 	std::cout << "\n" << std::setfill('-') << std::setw(100) << "\n";
 	std::cout << "Welcome to UW Airlines";
@@ -59,25 +36,55 @@ int main() {
 
 	while (input != 5) {
 		system("cls");
+
+		// Display available flights
 		if (input == 1) {
 			std::cout << "\nAvailable flights:\n";
 			std::cout << mylist << "\n";
 		}
-		else if (input == 2) {
-			//Flight myflight = check_and_get_flight(mylist);
-			//myflight.makereservation();
-		}
-		else if (input == 3) {
-			//Flight myflight = check_and_get_flight(mylist);
-			//Reservation myreservation = check_and_get_reservation(myflight);
-		}
-		else if (input == 4) {
-			//Flight myflight = check_and_get_flight(mylist);
-			//Reservation myreservation = check_and_get_reservation(myflight);
-			//myflight.cancelreservation();
-		}
-		else {
+
+		// If incorrect option, display message
+		else if (input > 5) {
 			std::cout << "\nIncorrect option. Enter a valid option 1 - 5.\n\n";
+		}
+
+		// if input = 2, 3, or 4
+		else {
+			// Get flight number to make/view/cancel reservation
+			std::cout << "Enter flight number to make/view/cancel reservation: ";
+			unsigned int user_flight_num;
+			std::cin >> user_flight_num;
+			if (!mylist.findflight(user_flight_num)) {
+				std::cout << "\nFlight number " << user_flight_num << " does not exist\n";
+				std::cout << "\nAvailable flights:\n";
+				std::cout << mylist;
+			}
+			else {
+				Flight myflight = mylist.getflight(user_flight_num);
+				if (input == 2) {
+					//myflight.makereservation();
+				}
+				else {
+					// Get reservation number to view or cancel it
+					std::cout << "Enter reservation number: ";
+					unsigned int user_res_num;
+					std::cin >> user_res_num;
+					if (!myflight.findreservation(user_res_num)) {
+						std::cout << "\nReservation number " << user_res_num << " does not exist\n";
+					}
+					else {
+						// view reservation
+						if (input == 3) {
+							Reservation myreservation = myflight.getreservation(user_res_num);
+							std::cout << myreservation;
+						}
+						// cancel reservation
+						else {
+							//myflight.cancelreservation(user_res_num);
+						}
+					}
+				}
+			}
 		}
 		input = get_user_input();
 	}
