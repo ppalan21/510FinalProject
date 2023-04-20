@@ -22,9 +22,6 @@
     <Filter Include="CppUnitLite\CppUnitLite source files">
       <UniqueIdentifier>{eb353b13-4016-4378-ac6a-580d9034ba97}</UniqueIdentifier>
     </Filter>
-    <Filter Include="FlightDatabase">
-      <UniqueIdentifier>{2cb7d977-c4e6-456d-96f9-320ce9725eb1}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -60,6 +57,12 @@
     <ClCompile Include="FlightListTest.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Reservation.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ReservationTest.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\CppUnitLite\Failure.h">
@@ -83,10 +86,8 @@
     <ClInclude Include="Flight.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="FlightDatabase\FlightList.txt">
-      <Filter>FlightDatabase</Filter>
-    </Text>
+    <ClInclude Include="Reservation.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
