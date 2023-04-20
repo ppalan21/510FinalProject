@@ -19,8 +19,10 @@ Flight::Flight()
 
 Flight::Flight(unsigned int num, std::string src, std::string dst, unsigned int st, unsigned int dur, double price)
 	: m_number(num), m_source(src), m_destination(dst), m_start_time(st), m_duration(dur), m_price(price) {
+	// function of the constructor is to read reservation info for each flight and initialize reservation instances
 	std::string filepath = "FlightDatabase\\Flight" + std::to_string(m_number) + ".txt";
 	std::ifstream reslistfile(filepath);
+	// if file Flight<flight_number>.txt exists, then open it
 	if (reslistfile.is_open()) {
 		std::string mytext;
 		int currentline = -1;
@@ -48,6 +50,7 @@ Flight::Flight(unsigned int num, std::string src, std::string dst, unsigned int 
 		}
 		reslistfile.close();
 	}
+	// if Flight<flight_number>.txt does not exist, create one with header file
 	else {
 		std::ofstream reslistfile(filepath);
 		std::stringstream(ss);
@@ -132,6 +135,7 @@ void Flight::cancelreservation(unsigned int num) {
 }
 
 void Flight::makereservation() {
+	// get details for a new reservation
 	std::cout << "\nPlease enter the following details:\n";
 	std::string name = "---";
 	std::cout << "Customer Name (Please enter in camel case format - Capitalize both first and last names and no space in between - example: JohnDoe): ";
@@ -142,21 +146,25 @@ void Flight::makereservation() {
 	std::list<std::pair<char, unsigned int>> seats;
 	for (unsigned int i = 0; i < numpassengers; i++) {
 		char c = ' ';
+		// keep looping until we get a valid character Between A and Z
 		while (c < 'A' || c > 'Z') {
 			std::cout << "Select column for passenger " << i << " (A - Z): ";
 			std::cin >> c;
 		}
-		unsigned int r = 50;
+		unsigned int r = 0;
+		// keep looping until we get a valid number between 1 and 25
 		while (r < 1 || r >  25) {
 			std::cout << "Select row for passenger " << i << " (1 - 25): ";
 			std::cin >> r;
 		}
 		seats.push_back(std::make_pair(c, r));
 	}
+	// generate a unique number for reservation number
 	unsigned int resnum = rand() % 1000 + 1;
 	while (m_reservationlist.find(resnum) != m_reservationlist.end()) {
 		resnum = rand() % 1000 + 1;
 	}
+	// create Reservation instance and add it to reservation list 
 	Reservation res(resnum, name, numpassengers, seats);
 	m_reservationlist[resnum] = res;
 	std::cout << "\nThank you. your reservation number is: " << resnum << "\n";
@@ -174,6 +182,7 @@ std::ostream& operator<<(std::ostream& os, const Flight& flight) {
 }
 
 Flight::~Flight() {
+	// function of the destructor is to write out updated reservation info for each flight into it's corresponding text file
 	std::string filepath = "FlightDatabase\\Flight" + std::to_string(m_number) + ".txt";
 	std::ofstream reslistfile(filepath);
 	std::stringstream ss;
