@@ -148,13 +148,13 @@ void Flight::makereservation() {
 		char c = ' ';
 		// keep looping until we get a valid character Between A and Z
 		while (c < 'A' || c > 'Z') {
-			std::cout << "Select column for passenger " << i << " (A - Z): ";
+			std::cout << "Select column for passenger " << i + 1 << " (A - Z): ";
 			std::cin >> c;
 		}
 		unsigned int r = 0;
 		// keep looping until we get a valid number between 1 and 25
 		while (r < 1 || r >  25) {
-			std::cout << "Select row for passenger " << i << " (1 - 25): ";
+			std::cout << "Select row for passenger " << i + 1 << " (1 - 25): ";
 			std::cin >> r;
 		}
 		seats.push_back(std::make_pair(c, r));
@@ -167,7 +167,8 @@ void Flight::makereservation() {
 	// create Reservation instance and add it to reservation list 
 	Reservation res(resnum, name, numpassengers, seats);
 	m_reservationlist[resnum] = res;
-	std::cout << "\nThank you. your reservation number is: " << resnum << "\n";
+	double total_price = numpassengers * m_price;
+	std::cout << "\nThank you. You total is " << total_price << "$ and your reservation number is : " << resnum << "\n\n";
 }
 
 std::ostream& operator<<(std::ostream& os, const Flight& flight) {
