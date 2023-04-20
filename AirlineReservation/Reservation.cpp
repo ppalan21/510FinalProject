@@ -63,13 +63,12 @@ bool Reservation::operator== (Reservation& other) {
 }
 
 std::ostream& operator<<(std::ostream& os, const Reservation& reservation) {
-	add_reservationlist_header(os);
 	os	<< std::format("{:<25}", reservation.m_number)
 		<< std::format("{:<25}", reservation.m_name)
 		<< std::format("{:<25}", reservation.m_numpassengers);
 	for (const auto& item : reservation.m_seats) {
 		os << item.first << item.second << " ";
 	}
-	os << "\n\n";
+	os << "\n";
 	return os;
 }

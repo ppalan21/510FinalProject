@@ -11,9 +11,7 @@ Flight::Flight()
 
 Flight::Flight(unsigned int num, std::string src, std::string dst, unsigned int st, unsigned int dur, double price)
 	: m_number(num), m_source(src), m_destination(dst), m_start_time(st), m_duration(dur), m_price(price) {
-	std::stringstream ss;
-	ss << "FlightDatabase\\Flight" << m_number << ".txt";
-	std::string filepath = ss.str();
+	std::string filepath = "FlightDatabase\\Flight" + std::to_string(m_number) + ".txt";
 	std::ifstream reslistfile(filepath);
 	if (reslistfile.is_open()) {
 		std::string mytext;
@@ -34,7 +32,7 @@ Flight::Flight(unsigned int num, std::string src, std::string dst, unsigned int 
 				seats.push_back(std::make_pair(column, row));
 			}
 			if (!ss) {
-				std::cout << "Reservation details for row " << currentline << " not parsed correctly\n";
+				std::cout << "Reservation details for row " << currentline << " of Flight " << m_number << " not parsed correctly\n";
 				continue;
 			}
 			Reservation reservation(num, name, numpassengers, seats);
@@ -44,9 +42,10 @@ Flight::Flight(unsigned int num, std::string src, std::string dst, unsigned int 
 	}
 	else {
 		std::ofstream reslistfile(filepath);
-		ss.str("");
+		std::stringstream(ss);
 		add_reservationlist_header(ss);
 		reslistfile << ss.str();
+		reslistfile.close();
 	}
 }
 
@@ -128,4 +127,18 @@ std::ostream& operator<<(std::ostream& os, const Flight& flight) {
 		<< std::format("{:<25}", flight.m_price);
 	os << "\n";
 	return os;
+}
+
+Flight::~Flight() {
+	std::string filepath = "FlightDatabase\\Flight" + std::to_string(m_number) + ".txt";
+	std::ofstream reslistfile(filepath);
+	std::stringstream ss;
+	add_reservationlist_header(ss);
+	reslistfile << ss.str();
+	for (auto& item : m_reservationlist) {
+		std::stringstream ss;
+		ss << item.second;
+		reslistfile << ss.str();
+	}
+	reslistfile.close();
 }

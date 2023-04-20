@@ -23,6 +23,7 @@ public:
 	bool findreservation(unsigned int) const;
 	bool operator== (Flight& other);
 	friend std::ostream& operator<<(std::ostream& os, const Flight& flight);
+	~Flight();
 private:
 	unsigned int m_number;
 	std::string m_source;

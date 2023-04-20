@@ -75,6 +75,7 @@ int main() {
 					else {
 						// view reservation
 						if (input == 3) {
+							add_reservationlist_header(std::cout);
 							Reservation myreservation = myflight.getreservation(user_res_num);
 							std::cout << myreservation;
 						}
