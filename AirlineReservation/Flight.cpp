@@ -1,5 +1,7 @@
 #include "Flight.h"
-#include <ostream>
+#include <iostream>
+#include <sstream>
+#include <fstream>
 #include <format>
 
 Flight::Flight()
@@ -9,7 +11,44 @@ Flight::Flight()
 
 Flight::Flight(unsigned int num, std::string src, std::string dst, unsigned int st, unsigned int dur, double price)
 	: m_number(num), m_source(src), m_destination(dst), m_start_time(st), m_duration(dur), m_price(price) {
-
+	std::stringstream ss;
+	ss << "FlightDatabase\\Flight" << m_number << ".txt";
+	std::string filepath = ss.str();
+	std::ifstream reslistfile(filepath);
+	if (reslistfile.is_open()) {
+		std::string mytext;
+		int currentline = -1;
+		while (std::getline(reslistfile, mytext)) {
+			currentline++;
+			if (currentline == 0) continue;
+			std::stringstream ss;
+			ss << mytext;
+			unsigned int num, numpassengers;
+			std::string name;
+			std::list<std::pair<char, unsigned int>> seats;
+			ss >> num >> name >> numpassengers;
+			for (unsigned int i = 0; i < numpassengers; i++) {
+				char column;
+				unsigned int row;
+				ss >> column >> row;
+				seats.push_back(std::make_pair(column, row));
+			}
+			if (!ss) {
+				std::cout << "Reservation details for row " << currentline << " not parsed correctly\n";
+				continue;
+			}
+			Reservation reservation(num, name, numpassengers, seats);
+			std::cout << reservation;
+			m_reservationlist[num] = reservation;
+		}
+		reslistfile.close();
+	}
+	else {
+		std::ofstream reslistfile(filepath);
+		ss.str("");
+		add_reservationlist_header(ss);
+		reslistfile << ss.str();
+	}
 }
 
 unsigned int Flight::getnumber() const {
@@ -69,6 +108,15 @@ bool Flight::operator== (Flight& other) {
 		m_price == other.m_price) {
 		return true;
 	}
+	return false;
+}
+
+Reservation Flight::getreservation(unsigned int num) const {
+	return m_reservationlist.at(num);
+}
+
+bool Flight::findreservation(unsigned int num) const {
+	if (m_reservationlist.find(num) != m_reservationlist.end()) return true;
 	return false;
 }
 

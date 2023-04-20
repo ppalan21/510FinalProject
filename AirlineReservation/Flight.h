@@ -1,5 +1,7 @@
 #pragma once
+#include "Reservation.h"
 #include <string>
+#include <unordered_map>
 
 class Flight {
 public:
@@ -17,6 +19,8 @@ public:
 	void setstarttime(unsigned int);
 	void setduration(unsigned int);
 	void setprice(double);
+	Reservation getreservation(unsigned int) const;
+	bool findreservation(unsigned int) const;
 	bool operator== (Flight& other);
 	friend std::ostream& operator<<(std::ostream& os, const Flight& flight);
 private:
@@ -26,4 +30,5 @@ private:
 	unsigned int m_start_time;
 	unsigned int m_duration;
 	double m_price;
+	std::unordered_map<unsigned int, Reservation> m_reservationlist;
 };
