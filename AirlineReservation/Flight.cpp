@@ -38,7 +38,6 @@ Flight::Flight(unsigned int num, std::string src, std::string dst, unsigned int 
 				continue;
 			}
 			Reservation reservation(num, name, numpassengers, seats);
-			std::cout << reservation;
 			m_reservationlist[num] = reservation;
 		}
 		reslistfile.close();
