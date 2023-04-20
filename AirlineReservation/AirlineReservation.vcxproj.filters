@@ -22,6 +22,9 @@
     <Filter Include="CppUnitLite\CppUnitLite source files">
       <UniqueIdentifier>{eb353b13-4016-4378-ac6a-580d9034ba97}</UniqueIdentifier>
     </Filter>
+    <Filter Include="FlightDatabase">
+      <UniqueIdentifier>{0d91d6eb-4658-4153-b5d9-1bf8af5dd0b4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -89,5 +92,10 @@
     <ClInclude Include="Reservation.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="FlightDatabase\FlightList.txt">
+      <Filter>FlightDatabase</Filter>
+    </Text>
   </ItemGroup>
 </Project>
