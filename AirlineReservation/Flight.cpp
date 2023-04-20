@@ -109,13 +109,17 @@ bool Flight::operator== (Flight& other) {
 	return false;
 }
 
-Reservation Flight::getreservation(unsigned int num) const {
+Reservation& Flight::getreservation(unsigned int num) {
 	return m_reservationlist.at(num);
 }
 
 bool Flight::findreservation(unsigned int num) const {
 	if (m_reservationlist.find(num) != m_reservationlist.end()) return true;
 	return false;
+}
+
+void Flight::cancelreservation(unsigned int num) {
+	m_reservationlist.erase(num);
 }
 
 std::ostream& operator<<(std::ostream& os, const Flight& flight) {

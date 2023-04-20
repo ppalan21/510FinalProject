@@ -48,7 +48,7 @@ FlightList::FlightList(std::string filepath) {
 	}
 }
 
-Flight FlightList::getflight(unsigned int num) const {
+Flight& FlightList::getflight(unsigned int num) {
 	return m_list.at(num);
 }
 

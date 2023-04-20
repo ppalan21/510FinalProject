@@ -8,7 +8,7 @@ class FlightList {
 public:
 	FlightList();
 	FlightList(std::string);
-	Flight getflight(unsigned int flight_number) const;
+	Flight& getflight(unsigned int flight_number);
 	bool findflight(unsigned int flight_number) const;
 	friend std::ostream& operator<<(std::ostream& os, const FlightList& flightlist);
 private:
