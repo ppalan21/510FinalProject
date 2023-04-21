@@ -2,6 +2,7 @@
 #include "TestHarness.h"
 #include "Flight.h"
 #include <format>
+#include <iostream>
 
 TEST(DefaultConstructor, Flight) {
 	Flight flight;
@@ -69,5 +70,23 @@ TEST(EqualToEqualToOperator, Flight) {
 	Flight fl3(253, "XYZ", "QWQ", 410, 232, 520.65);
 	CHECK(fl1 == fl2);
 	CHECK(fl1 != fl3);
+}
+
+TEST(ReservationActions, Flight) {
+	Flight fl(845, "SMF", "MAA", 1730, 121, 234.11);
+	// Make reservation
+	std::cout << "This is a debug test case to create a new reservation:\n";
+	unsigned int resnum = fl.makereservation();
+	std::cout << "Your reservation number is: " << resnum << " (Please save this for future reference)\n\n";
+	// view and check reservation
+	if (!fl.findreservation(resnum)) {
+		CHECK_FAIL("Reservation not added correctly");
+	}
+	// cancel reservation
+	fl.cancelreservation(resnum);
+	if (fl.findreservation(resnum)) {
+		CHECK_FAIL("Reservation not cancelled correctly");
+	}
+	std::cout << "\n";
 }
 #endif

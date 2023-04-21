@@ -22,11 +22,16 @@ int get_user_input() {
 
 int main() {
 #ifdef _DEBUG
+	std::cout << "\n" << std::setfill('-') << std::setw(100) << "\n";
 	// random number generator used in some tests
 	srand(::time_t(NULL));
 
 	TestResult tr;
 	TestRegistry::runAllTests(tr);
+	std::cout << "Unit tests done!\n";
+	std::cout << "\n" << std::setfill('-') << std::setw(100) << "\n";
+	std::cout << "\n" << std::setfill(' ') << std::setw(100) << "\n";
+	
 #endif
 
 	std::cout << "\n" << std::setfill('-') << std::setw(100) << "\n";
