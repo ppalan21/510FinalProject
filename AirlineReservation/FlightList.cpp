@@ -14,11 +14,11 @@ void add_flightlist_header(std::ostream& os) {
 	os << "\n";
 }
 
-FlightList::FlightList() {
+FlightList::FlightList() : m_num_flights(0) {
 
 }
 
-FlightList::FlightList(std::string filepath) {
+FlightList::FlightList(std::string filepath) : m_num_flights(0) {
 	// function of the constructor is to read flight database text file and initialize flight instances
 	std::ifstream mylist(filepath);
 	// if flight database (FlighList.txt) is available, then open it
@@ -45,6 +45,8 @@ FlightList::FlightList(std::string filepath) {
 			}
 			// create new flight instance with above data and add it to flight list
 			Flight flight(num, src, dst, st, dur, price);
+			// only increment if flight number is unique; if not, existing flight will be overwritten
+			if (m_list.find(num) == m_list.end()) ++m_num_flights;
 			m_list[num] = flight;
 		}
 		mylist.close();
@@ -64,6 +66,10 @@ Flight& FlightList::getflight(unsigned int num) {
 bool FlightList::findflight(unsigned int flight_number) const {
 	if (m_list.find(flight_number) != m_list.end()) return true;
 	return false;
+}
+
+unsigned int FlightList::getnumflights() const {
+	return m_num_flights;
 }
 
 std::ostream& operator<<(std::ostream& os, const FlightList& fl) {
