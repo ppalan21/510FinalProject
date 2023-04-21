@@ -23,7 +23,7 @@ public:
 	void setprice(double);
 	Reservation& getreservation(unsigned int);
 	bool findreservation(unsigned int) const;
-	void makereservation();
+	unsigned int makereservation();
 	void cancelreservation(unsigned int);
 	bool operator== (Flight& other);
 	friend std::ostream& operator<<(std::ostream& os, const Flight& flight);

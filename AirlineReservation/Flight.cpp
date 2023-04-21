@@ -134,7 +134,7 @@ void Flight::cancelreservation(unsigned int num) {
 	std::cout << "Thank you. Your reservation (number " << num << ") has been cancelled\n";
 }
 
-void Flight::makereservation() {
+unsigned int Flight::makereservation() {
 	// get details for a new reservation
 	std::cout << "\nPlease enter the following details:\n";
 	std::string name = "---";
@@ -168,7 +168,8 @@ void Flight::makereservation() {
 	Reservation res(resnum, name, numpassengers, seats);
 	m_reservationlist[resnum] = res;
 	double total_price = numpassengers * m_price;
-	std::cout << "\nThank you. You total is " << total_price << "$ and your reservation number is : " << resnum << "\n\n";
+	std::cout << "\nThank you. You total price is " << total_price << "$.\n";
+	return resnum;
 }
 
 std::ostream& operator<<(std::ostream& os, const Flight& flight) {

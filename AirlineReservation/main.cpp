@@ -72,7 +72,8 @@ int main() {
 				Flight& myflight = mylist.getflight(user_flight_num);
 				// make a new reservation
 				if (input == 2) {
-					myflight.makereservation();
+					unsigned int resnum = myflight.makereservation();
+					std::cout << "Your reservation number is: " << resnum << " (Please save this for future reference)\n\n";
 				}
 				else {
 					// get reservation number to view or cancel it
