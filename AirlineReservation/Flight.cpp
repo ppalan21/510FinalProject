@@ -137,26 +137,45 @@ void Flight::cancelreservation(unsigned int num) {
 unsigned int Flight::makereservation() {
 	// get details for a new reservation
 	std::cout << "\nPlease enter the following details:\n";
+
+	// get customer name, check for validity and clear cin buffer
 	std::string name = "---";
-	std::cout << "Customer Name (Please enter in camel case format - Capitalize both first and last names and no space in between - example: JohnDoe): ";
-	std::cin >> name;
+	std::cout << "Customer Name (Please enter in camel case format, no spaces) - example: JohnDoe): ";
+	while (!(std::cin >> name)) {
+		std::cout << "Invalid entry! Please enter valid customer name (camel case format): ";
+	}
+	std::cin.clear();
+	std::cin.ignore(10000, '\n');
+
+	// get number of passengers, check for validity and clear cin buffer
 	unsigned int numpassengers = 0;
-	std::cout << "Enter number of passengers: ";
-	std::cin >> numpassengers;
+	std::cout << "Enter number of passengers (1 - 100): ";
+	while (!(std::cin >> numpassengers) || (numpassengers < 1) || (numpassengers > 100)) {
+		std::cout << "Invalid entry! Please enter valid number of passengers (1 - 100): ";
+	}
+	std::cin.clear();
+	std::cin.ignore(10000, '\n');
+
+	// get seat selection, check for validity and clear cin buffer
 	std::list<std::pair<char, unsigned int>> seats;
 	for (unsigned int i = 0; i < numpassengers; i++) {
+
 		char c = ' ';
-		// keep looping until we get a valid character Between A and Z
-		while (c < 'A' || c > 'Z') {
-			std::cout << "Select column for passenger " << i + 1 << " (A - Z): ";
-			std::cin >> c;
+		std::cout << "Select column for passenger " << i + 1 << " (A - Z): ";
+		while (!(std::cin >> c) || (c < 'A') || (c > 'Z')) {
+			std::cout << "Invalid entry! Enter valid column for passenger " << i + 1 << " (A - Z): ";
 		}
+		std::cin.clear();
+		std::cin.ignore(10000, '\n');
+
 		unsigned int r = 0;
-		// keep looping until we get a valid number between 1 and 25
-		while (r < 1 || r >  25) {
-			std::cout << "Select row for passenger " << i + 1 << " (1 - 25): ";
-			std::cin >> r;
+		std::cout << "Select row for passenger " << i + 1 << " (1 - 25): ";
+		while (!(std::cin >> r) || (r < 1) || (r >  25)) {
+			std::cout << "Invalid entry! Enter valid row for passenger " << i + 1 << " (1 - 25): ";
 		}
+		std::cin.clear();
+		std::cin.ignore(10000, '\n');
+
 		seats.push_back(std::make_pair(c, r));
 	}
 	// generate a unique number for reservation number

@@ -94,7 +94,7 @@ int main() {
 						if (input == 3) {
 							add_reservationlist_header(std::cout);
 							Reservation& myreservation = myflight.getreservation(user_res_num);
-							std::cout << myreservation;
+							std::cout << myreservation << "\n";
 						}
 						// cancel reservation
 						else {
