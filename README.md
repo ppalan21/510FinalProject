@@ -48,7 +48,7 @@ We have 3 classes implemented for this project
 _-std::unordered_map<unsigned int, Flight> m_list_ - maps Flight number to it's corresponding Flight instance<br/>
 _-unsigned int m_num_flights_ - keeps count of number of available flights<br/>
 _+FlightList()_ - Default constructor<br/>
-_+FlightList(std::string)_ - Refer to point no.1 in Implementation steps<br/>
+_+FlightList(std::string)_ - Refer to point no.1 in [Implementation steps](README.md#implementation-steps)<br/>
 _+Flight& getflight(unsigned int flight_number)_ - Get Flight instance based on flight_number<br/>
 _+bool findflight(unsigned int flight_number) const_ - Check if a Flight instance exists or not, based on flight_number<br/>
 _+unsigned int getnumflights() const_ - Get number of available flights<br/>
@@ -62,7 +62,7 @@ _-unsigned int m_duration_ - Flight duration (minutes)<br/>
 _-double m_price_ - Flight price per seat ($)<br/>
 _-std::unordered_map<unsigned int, Reservation> m_reservationlist_ - maps Reservation number to it's corresponding Reservation instance<br/>
 _+Flight()_ - Default constructor<br/>
-_+Flight(unsigned int, std::string, std::string, unsigned int, unsigned int, double)_ - Refer to point no.2 in Implementation steps<br/>
+_+Flight(unsigned int, std::string, std::string, unsigned int, unsigned int, double)_ - Refer to point no.2 in [Implementation steps](README.md#implementation-steps)<br/>
 _+unsigned int getnumber() const_ - Get flight number<br/>
 _+std::string getsource() const_ - Get flight source city<br/>
 _+std::string getdestination() const_ - Get flight destination city<br/>
@@ -81,7 +81,7 @@ _+unsigned int makereservation()_ - Make a reservation<br/>
 _+void cancelreservation(unsigned int)_ - Delete reservation using reservation number<br/>
 _+bool operator== (Flight& other)_ - operator== overloading<br/>
 _+friend std::ostream& operator<<(std::ostream& os, const Flight& flight)_ - Ostream operator overloading<br/>
-_+~Flight()_ - Refer to point no.10 in Implementation steps<br/>
+_+~Flight()_ - Refer to point no.10 in [Implementation steps](README.md#implementation-steps)<br/>
 #### class Reservation
 
 ## Testing
