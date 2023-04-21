@@ -83,6 +83,22 @@ _+bool operator== (Flight& other)_ - operator== overloading<br/>
 _+friend std::ostream& operator<<(std::ostream& os, const Flight& flight)_ - Ostream operator overloading<br/>
 _+~Flight()_ - Refer to point no.10 in [Implementation steps](README.md#implementation-steps)<br/>
 #### class Reservation
+_-unsigned int m_number_ - <br/>
+_-std::string m_name_ - <br/>
+_-unsigned int m_numpassengers_ - <br/>
+_-std::list<std::pair<char, unsigned int>> m_seats_ - <br/>
+_+Reservation()_ - <br/>
+_+Reservation(unsigned int, std::string, unsigned int, std::list<std::pair<char, unsigned int>>&)_ - <br/> 
+_+unsigned int getnumber() const_ - <br/>
+_+std::string getname() const_ - <br/>
+_+unsigned int getnumpassengers() const_ - <br/> 
+_+std::list<std::pair<char, unsigned int>> getseats() const_ - <br/>
+_+void setnumber(unsigned int)_ - <br/>
+_+void setname(std::string)_ - <br/>
+_+void setnumpassengers(unsigned int)_ - <br/>
+_+void setseats(std::list<std::pair<char, unsigned int>>&)_ - <br/>
+_+bool operator== (Reservation& other)_ - <br/>
+_+friend std::ostream& operator<<(std::ostream& os, const Reservation& reservation)_ - <br/>
 
 ## Testing
 The CppUnitLite test framework was used for testing the public member functions of the classes. <class_name>Test.cpp contains the unit tests for each class.
