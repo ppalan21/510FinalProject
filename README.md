@@ -67,7 +67,7 @@ _+unsigned int getnumber() const_ - Get flight number<br/>
 _+std::string getsource() const_ - Get flight source city<br/>
 _+std::string getdestination() const_ - Get flight destination city<br/>
 _+unsigned int getstarttime() const_ - Get flight start time<br/>
-_+unsigned int getduration() const_ - Get flight suration<br/>
+_+unsigned int getduration() const_ - Get flight duration<br/>
 _+double getprice() const_ - Get flight price per seat<br/>
 _+void setnumber(unsigned int)_ - Set flight number<br/>
 _+void setsource(std::string)_ - Set flight source city<br/>
