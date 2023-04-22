@@ -104,6 +104,9 @@ _+friend std::ostream& operator<<(std::ostream& os, const Reservation& reservati
 ## Testing
 The CppUnitLite test framework was used for testing the public member functions of the classes. <class_name>Test.cpp contains the unit tests for each class.
 
+## Sample screenshots
+[Sample screenshots](Sample%20Screenshots.pdf)
+
 ## Next steps
 Unfortunately, I did not have time to finish seat map and seat selection support. A few next steps that can be considered:
 - Seat map support
