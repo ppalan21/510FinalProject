@@ -44,6 +44,7 @@ We have 3 classes implemented for this project
 
 ### Classes and their responsibilities
 #### UML
+![UML_Diagram](UML_Diagram.jpg)
 #### class FlightList
 _-std::unordered_map<unsigned int, Flight> m_list_ - maps Flight number to it's corresponding Flight instance<br/>
 _-unsigned int m_num_flights_ - keeps count of number of available flights<br/>
